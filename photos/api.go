@@ -15,6 +15,7 @@ type Photos struct{}
 
 var client = &http.Client{}
 
+// Consume la api
 func (*Photos) run(method string, id int) (resp *http.Response, code int, err error) {
 	var url string
 	if id == 0 || strings.ToUpper(method) == "POST" {
@@ -38,6 +39,7 @@ func (*Photos) run(method string, id int) (resp *http.Response, code int, err er
 	return resp, resp.StatusCode, nil
 }
 
+//Realiza la peticion segun su verbo (GET, PUT, POST, DELETE)
 func (p *Photos) GetOne(id int) (resp *http.Response, code int, err error) {
 	return p.run("GET", id)
 }
