@@ -18,11 +18,9 @@ func (*Prompt) Draw() (option string, err error) {
 	_, result, err := prompt.Run()
 
 	if err != nil {
-		//fmt.Printf("Prompt failed %v\n", err)
 		return "", err
 	}
 
-	//fmt.Printf("You choose %q\n", result)
 	return result, nil
 }
 
@@ -47,18 +45,12 @@ func (*Prompt) WaitId() (id int, err error) {
 		return 0, err
 	}
 
-	//fmt.Printf("You choose %q\n", result)
-
 	id, err = strconv.Atoi(result)
 	if err != nil {
 		fmt.Printf("Strconv failed %v\n", err)
 		return 0, err
 	}
 
-	//fmt.Printf("You choose %d\n", id)
 	return id, nil
 }
 
-func (*Prompt) Exit() {
-	return
-}
